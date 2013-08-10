@@ -1,7 +1,6 @@
-auto: true
 title: The Readability Blog
 source: ./src
 destination: ./public
-permalink: pretty
+permalink: /:year/:month/:day/:title/
 exclude: [scss]
 future: false
