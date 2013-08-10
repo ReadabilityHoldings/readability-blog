@@ -1,0 +1,58 @@
+--- 
+layout: post
+title: Readability Python 0.2.0
+categories: 
+- News
+tags: []
+
+status: publish
+type: post
+published: true
+meta: 
+  _edit_last: "28"
+---
+Are you a developer? Do you write Python? Great! We've made some big changes and additions to the <a href="https://github.com/arc90/python-readability-api">Readability Python library</a>. We've simplified interactions with the Reader API and added support for the Parser API.
+<h4>First, The (small bit of) Bad News</h4>
+<p dir="ltr">With this new release, we're dropping Python 2.5 support. Hopefully, this isn't a shock. We'd like to look to start putting effort towards supporting Python 3 rather than worry about supporting past versions of Python.</p>
+
+<h4>The Important Stuff</h4>
+The philosophy behind simplifying the code was to bring HTTP to the surface. We ditched the idea of models and now expose the raw JSON from the server as dicts. All calls will return an instance of <a href="https://pypi.python.org/pypi/httplib2/0.8">httplib2</a>’s Response class with a slight modification. Each instance has an added 'content' attribute that contains the server's JSON response encoded with the standard lib's <a style="font-size: 13px;" href="http://docs.python.org/2/library/json.html#json.loads">json.loads</a>. This gives the user direct access to the data in a convenient dict.
+
+<code> from readability import ReaderClient
+rdb_client = ReaderClient('my_reader_token', 'my_reader_secret', 'user_key', 'user_secret')
+bookmarks_response = rdb_client.get_bookmarks(favorite=True)
+print bookmarks_response.content</code>
+
+<code> &gt;&gt;&gt; {
+'bookmarks': [{
+'read_percent': u'0.00',
+u'tags': [],
+...
+}, ...
+}
+</code>
+
+If you used past versions of the library, you might notice that XAuth still exists but OAuth is gone. The OAuth implementation was never fully baked. Instead of trying to maintain our own, we decided to let the community leverage the great libraries that are already out there. <a title="oauth2" href="https://github.com/simplegeo/python-oauth2">Simple Geo's oauth2 library</a> is great. If you're using Django, we added <a href="https://github.com/omab/django-social-auth/blob/master/social_auth/backends/contrib/readability.py">Readability support to django-social-auth</a> to help with the process.
+<h4>Pa<span style="font-size: 1em;">rser API Support</span></h4>
+Recently, all <a title="api-blog-post" href="http://blog.readability.com/2013/02/updated-readability-api/">Readability users were given access to the Parser API</a>.
+<p dir="ltr">After the Readability package is installed, getting parsed content is as easy as:</p>
+<code> from readability import ParserClient
+parser_client = ParserClient('your_parser_token')
+parser_response = parser_client.get_article_content('http://www.some-web-page/blog.html')
+print parser_response.content['content']</code>
+
+<code>
+&gt;&gt;&gt; {
+"content":  "I'm idling outside Diamante's, [snip] ...",
+"domain": "www.gq.com",
+"author": "Rafi Kohan",
+"url": "http://www.some-web-page/blog.html",
+"short_url": "http://rdd.me/g3jcb1sr", ...
+}
+</code>
+
+Note, the use of 'content' looks a bit redundant. It's necessary due to the response content being in an attribute called 'content' and the article content being returned with the key 'content'.
+
+Check out the <a href="http://readability.com/developers/api/parser">documentation</a> and the <a href="http://readability.com/developers/api/parser">terms of use</a> for more information on the Parser API.
+<h4>Get Started</h4>
+Take a look at the <a href="https://github.com/arc90/python-readability-api">code on Github</a>. Feel free to submit feedback, feature requests, contributions and bug reports. Don't forget to let us know if you build something!
