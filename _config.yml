@@ -1,0 +1,7 @@
+auto: true
+title: The Readability Blog
+source: ./src
+destination: ./public
+permalink: pretty
+exclude: [scss]
+future: false
