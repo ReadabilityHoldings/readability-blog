@@ -1,0 +1,40 @@
+[role="main"] {
+    font-size: 1.5em;
+    margin: 0 auto;
+    max-width: getTargetWidth(12);
+    position: relative;
+    width: calc-percent(getTargetWidth(11.5), $containerMaxWidth);
+
+    @media screen and ($medScreenWidthCondition) {
+        left: -$gutterWidth * 0.5;
+        width: calc-percent(getTargetWidth(10), $containerMaxWidth);
+    }
+}
+
+.home-link {
+    $size: 40px;
+    box-shadow: inset 0 0 0 0 $rdbRed;
+    border-radius: $size * 0.5;
+    display: inline-block;
+    height: $size;
+    overflow: hidden;
+    text-decoration: none;
+    @include transition(box-shadow 0.1s, color 0.15s);
+    width: $size;
+
+    &:before {
+        display: block;
+        font-size: 48px;
+        height: 100%;
+        line-height: 0.2;
+        margin-bottom: 0.8em;
+        width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        box-shadow: inset 0 0 1px 20px $rdbRed;
+        color: $mainBgColor;
+    }
+}

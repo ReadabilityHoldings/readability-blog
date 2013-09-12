@@ -1,0 +1,23 @@
+@function getTargetWidth($numCols) {
+    // For every 2 cols, 1 gutter is needed.
+    $totalGutterWidth: (ceil($numCols) - 1) * $gutterWidth;
+    $totalColWidth: $numCols * $colWidth;
+    @return floor($totalColWidth + $totalGutterWidth);
+}
+
+$mainBgColor: #fdfdfd;
+$mainBgColorSmallScreen: darken($mainBgColor, 2);
+$defaultTextColor: #302c22;
+$rdbRed: #990000;
+$dividerColor: #e1e1e1;
+
+$colWidth: 83px;
+$gutterWidth: 14px;
+$cols: 14;
+$containerMaxWidth: 1330px;
+
+$medScreenWidthCondition: "min-width: 571px";
+$lrgScreenWidthCondition: "min-width: 850px";
+// Generally you want to use min-width, but for certain things we need to make
+// sure they are not applied on larger screens.
+$smallScreenMaxWidthCondition: "max-width: 570px";
