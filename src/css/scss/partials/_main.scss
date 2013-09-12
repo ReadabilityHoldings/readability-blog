@@ -6,7 +6,7 @@
     width: calc-percent(getTargetWidth(11.5), $containerMaxWidth);
 
     @media screen and ($medScreenWidthCondition) {
-        left: -$gutterWidth * 0.5;
+        left: -$gutterWidth;
         width: calc-percent(getTargetWidth(10), $containerMaxWidth);
     }
 }
