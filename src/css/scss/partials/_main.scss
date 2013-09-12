@@ -1,7 +1,7 @@
 [role="main"] {
     font-size: 1.5em;
     margin: 0 auto;
-    max-width: getTargetWidth(12);
+    max-width: getTargetWidth(11);
     position: relative;
     width: calc-percent(getTargetWidth(11.5), $containerMaxWidth);
 
