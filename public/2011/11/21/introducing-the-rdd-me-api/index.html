@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>The Readability Blog</title>
+        <meta name="description" content="A place for the Readability to share their experiences while making the web a more comfortable place to read.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" href="/css/thekingofwhat.css">
+    </head>
+    <body>
+        <main role="main">
+            <div class="post-header">
+                <a href="/" class="icon icon-couch home-link">Home</a>
+            </div>
+            <article class="hentry">
+                <header class="entry-info">
+                    <h1 class="entry-title">
+                        Introducing the rdd.me API
+                    </h1>
+                    <div class="entry-meta">
+                        <span class="byline author vcard">by
+                            <a href=""><span class="fn">Tyler Gaw</span></a>
+                        </span>
+                        <time class="published" datetime="2013-05-25 05:24:03-0400">25 May 2013</time>
+                        <a href="">8 comments</a>
+                    </div>
+                </header>
+                <div class="entry-content">
+                    One of the more useful tools in the Readability toolbox has been our link shortener, <a href="http://rdd.me">rdd.me</a>. The interesting bit about rdd.me is simple: When an article is linked to through rdd.me, it offers up the availability to view the content in a clean, readable view.
+
+<img src="http://blog.readability.com/wp-content/themes/rdb/images/rdd.png" alt="A screenshot of the rdd.me web interface." />
+
+To date, it's been useful for a number of diligent sharers who have been kind enough to link their followers to it via a web interface at rdd.me. However, it's been a bit too walled-garden for our tastes—we'd like people to be able to share readable links no matter where they are.
+
+That's why we've <a href="http://www.readability.com/publishers/rdd">added a simple API to rdd.me</a>.
+
+Like all other shortener APIs, this one is dead simple: post a link, get back a JSON response together with the shortened URL. If you require metadata, you can do one more GET to retrieve the known title, author, excerpt, and word count of the article as Readability understands it.
+
+We'd love to see what you build with the rdd.me API. In fact, only hours after we released <a href="http://blog.readability.com/2011/11/reading-needs-a-platform-introducing-the-new-readability/">the new Readability</a>, one of our more stalwart users created a <a href="http://nghianguyen.me/post/12883442725">Safari extension</a> that will automatically shorten any URL you're on with the rdd.me API. Thanks for sharing, Nghia.
+
+<a href="http://www.readability.com/publishers/rdd">The rdd.me API docs are here</a>. Feel free to play around, and as always, <a href="http://www.readability.com/contact">let us know</a> if you have any questions.
+
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

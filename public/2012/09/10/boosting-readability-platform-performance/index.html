@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>The Readability Blog</title>
+        <meta name="description" content="A place for the Readability to share their experiences while making the web a more comfortable place to read.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" href="/css/thekingofwhat.css">
+    </head>
+    <body>
+        <main role="main">
+            <div class="post-header">
+                <a href="/" class="icon icon-couch home-link">Home</a>
+            </div>
+            <article class="hentry">
+                <header class="entry-info">
+                    <h1 class="entry-title">
+                        Boosting Readability Platform Performance
+                    </h1>
+                    <div class="entry-meta">
+                        <span class="byline author vcard">by
+                            <a href=""><span class="fn">Tyler Gaw</span></a>
+                        </span>
+                        <time class="published" datetime="2013-05-25 05:24:03-0400">25 May 2013</time>
+                        <a href="">8 comments</a>
+                    </div>
+                </header>
+                <div class="entry-content">
+                    At Readability, we're constantly adapting our infrastructure to add features, keep up with user requests, and solve problems in better ways. Recently, we made a set of updates that helped speed up API requests 15-25% and reduce our fleet of app servers by 60%.
+<h5><a href="http://blog-assets.readability.com/wp-content/uploads/2012/09/readability-performance-improvements.png"><img class="alignleft size-full wp-image-3215" title="readability-performance-improvements" src="http://blog-assets.readability.com/wp-content/uploads/2012/09/readability-performance-improvements.png" alt="" width="252" height="192" /></a>A Smarter Cloud</h5>
+Like lots of other web-based platforms, we host with Amazon. It's been great for quickly spinning up new test instances to play around with, allocating additional capacity on demand, and rock solid services like SES and S3.
+
+Up until recently, we were serving all traffic with the fairly standard nginx/Apache/mod_wsgi stack. Things ran smoothly, but we thought we could find a better, custom-tailored solution. During our evaluation process we tried out lots application servers, like <a href="http://projects.unbit.it/uwsgi/">uWSGI</a> and <a href="http://www.fapws.org/">fapws3</a>, but finally settled on <a href="http://gunicorn.org/">gunicorn</a>.
+
+What we love about gunicorn is its emphasis on hosting Django apps (which <a href="http://blog.readability.com/2012/08/supporting-the-tool-makers/">Readability is based</a> on), its wealth of configuration and tuning options, and the ability to include it as part of our application with very few external dependencies. We also thought it would be more performant, but we were surprised at exactly how much so!
+
+We also took the time to evaluate our instance types at Amazon. We launched using m1.xlarge instances, but after switching to gunicorn we had a much lower memory footprint and didn't need all the extra memory that m1.xlarges provide. Our workload is much more CPU-bound, due in part to <a href="http://blog.readability.com/2012/04/introducing-iris/">our parser engine</a>, and we decided to experiment with c1.xlarge.
+
+Not only did the switch to gunicorn and c1.xlarge instances reduce our costs, it dramatically improved our performance. That means faster page loads, faster API access, and faster syncing for your Readability <a href="http://readability.com/apps">apps</a>. On top of all that, by making use of Amazon's best practices and components such as ELB we were able to implement these changes with zero downtime.
+<h5>Wheels in Motion</h5>
+Scaling a platform the size of Readability on the fly has its challenges. To borrow a turn of phrase, it can be like changing the tires on a car going 100 miles an hour. We're happy to have found such a great fit with gunicorn and great hosting solutions at Amazon to allow us to test and make these changes quickly and easily.
+
+Interested in changing the tires on a car going 100 miles an hour? <a href="http://blog.readability.com/2012/07/were-looking-for-a-few-good-python-devs/">Come work with us</a>!
+
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

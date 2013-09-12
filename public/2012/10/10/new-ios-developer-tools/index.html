@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>The Readability Blog</title>
+        <meta name="description" content="A place for the Readability to share their experiences while making the web a more comfortable place to read.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" href="/css/thekingofwhat.css">
+    </head>
+    <body>
+        <main role="main">
+            <div class="post-header">
+                <a href="/" class="icon icon-couch home-link">Home</a>
+            </div>
+            <article class="hentry">
+                <header class="entry-info">
+                    <h1 class="entry-title">
+                        New Developer Tools in Readability for iOS
+                    </h1>
+                    <div class="entry-meta">
+                        <span class="byline author vcard">by
+                            <a href=""><span class="fn">Tyler Gaw</span></a>
+                        </span>
+                        <time class="published" datetime="2013-05-25 05:24:03-0400">25 May 2013</time>
+                        <a href="">8 comments</a>
+                    </div>
+                </header>
+                <div class="entry-content">
+                    <a href="http://blog-assets.readability.com/wp-content/uploads/2012/10/ReadabilityActivity.png"><img class="alignleft size-full wp-image-3480" title="ReadabilityActivity" src="http://blog-assets.readability.com/wp-content/uploads/2012/10/ReadabilityActivity.png" alt="" width="184" height="213" /></a>Readability 1.2.2 for iOS is <a title="iTunes App Store: Readability" href="http://itunes.apple.com/us/app/readability/id460156587?mt=8">available now</a>. Along with minor bug fixes, it introduces new developer tools to easily invoke actions from third-party apps. Using one of the options below, you can launch the Readability app and prompt the user to add an article to their reading list.
+<h5>Option 1: URL Scheme</h5>
+Readability now includes the readability:// URL scheme, which can launch the app from a browser link or using the UIApplication:openURL: method. Use it without parameters to simply launch the app, or use the following format with a URL string to prompt the user to add an article to their reading list:
+<code>
+readability://add/{url}
+</code>
+<h5>Option 2: iOS 6 UIActivity</h5>
+iOS 6 introduced the "share sheet"—a simple native interface to launch actions. We've created a custom UIActivity that you can integrate into your app. Simply import <a title="GitHub: Readability Activity" href="https://github.com/arc90/ReadabilityActivity">the ReadabilityActivity class and icons</a> to your project and wire it up:
+<code>
+// init Readability activity
+ReadabilityActivity *rdb = [[ReadabilityActivity alloc] init];</code>
+
+<code>
+// set up activity item / action. url is a NSURL
+NSArray *activityItems = @[ReadabilityActivityAdd, url];
+</code>
+
+<code>
+// init share sheet with app-specific activity
+UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[rdb]];
+</code>
+
+<code>
+// present the view controller, animated.
+[self presentViewController:shareSheet
+animated:YES
+completion:^{
+}];
+</code>
+
+The ReadabilityActivity class also includes an easy way to check that Readability is installed on a device. This method returns YES if the user is running Readability 1.2.2 or newer:
+<code>
+[ReadabilityActivity canPerformActivity]
+</code>
+<h5>A more comfortable developer experience</h5>
+The <a href="http://www.readability.com/developers/api">Readability API</a> has been integrated by thousands of developers into their projects. Now it's even easier to add Readability actions to your iOS app. Enjoy!
+
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

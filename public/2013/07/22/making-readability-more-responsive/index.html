@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>The Readability Blog</title>
+        <meta name="description" content="A place for the Readability to share their experiences while making the web a more comfortable place to read.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" href="/css/thekingofwhat.css">
+    </head>
+    <body>
+        <main role="main">
+            <div class="post-header">
+                <a href="/" class="icon icon-couch home-link">Home</a>
+            </div>
+            <article class="hentry">
+                <header class="entry-info">
+                    <h1 class="entry-title">
+                        Making Readability More Responsive
+                    </h1>
+                    <div class="entry-meta">
+                        <span class="byline author vcard">by
+                            <a href=""><span class="fn">Tyler Gaw</span></a>
+                        </span>
+                        <time class="published" datetime="2013-05-25 05:24:03-0400">25 May 2013</time>
+                        <a href="">8 comments</a>
+                    </div>
+                </header>
+                <div class="entry-content">
+                    <p>We believe our users should be able to enjoy reading on any device. Because of that, we put a lot of energy into making the Readability website as flexible as possible. Last week we released a number of improvements to the Article and Reading List views that will make using our site on small screen and touch-enabled devices much more enjoyable.
+</p><p><img src="http://blog-assets.readability.com/wp-content/uploads/2013/07/rdb-responsive-opening-01.jpg" alt="Readability on a large and small-screen device"/></p>
+
+<h4>Improvements to the Article View</h4>
+<p>One of the first changes you'll notice is a change to the buttons on the toolbar. We've added a delete button and removed the share (Twitter, Facebook, email) and export (Kindle, ePub, print) options. Don't worry, all of those are still available, they have just been moved to a submenu. We moved them for two reasons; 1) there were too many items present on the screen, they had started to distract from the article. 2) We wanted to give ourselves room to expand. In the future we may add other sharing and export options, having them in a submenu makes adding new options easier while keeping the items present on the screen to a minimum.</p>
+<img src="http://blog-assets.readability.com/wp-content/uploads/2013/07/rdb-responsive-toolbar-02.jpg" alt="Readability article view toolbar on on different screen widths"/>
+<p>As you can see from the screenshot above, the toolbar is now optimized to fit a range of screen sizes. As your screen width increases or decreases, the toolbar will move itself into a comfortable position and layout for that size. For touch-enabled devices, the toolbar will also give you as much room to read as possible by defaulting to being hidden and only displaying after tapping on the screen.</p>
+<h5>Better Submenus</h5>
+<img src="http://blog-assets.readability.com/wp-content/uploads/2013/07/rdb-responsive-submenus-01.jpg" alt="Screenshot of the appearance and sharing/exporting submenus on small screen devices"/>
+<p>For changing appearance, sending to Kindle, tagging, deleting, and now sharing/exporting from the Article view, we use flyout-style submenus. Those work well for larger screens with mouse input, but not so well for smaller screens. We've come up with a new style of submenu that is more suitable for small screen and touch-enabled devices.</p>
+<p>We've also updated the Reading List to use the new style of submenu for adding articles to your list and for tagging.</p>
+<h5>Switching to an Icon Font</h5>
+<img src="http://blog-assets.readability.com/wp-content/uploads/2013/07/rdb-responsive-readabilicons-01.jpg" alt="Readabilicons"/>
+<p>To cut down on the number of images we use and to make the article view look great at any resolution we've switched the toolbar icons to use a custom font; Readabilicons. Using an icon font allows us to quickly change the size and color of the icons to match the different article view background colors. It also allows us to add new icons without needing to make a new image sprite. Smaller page weight, sharper images, and quicker dev time. Using a font icon is a big win all around.</p>
+
+<h5>Deciding to Remove Options</h5>
+<p>We want Readability to be as comfortable to use as possible. One way that we're working to achieve that is by paring things to down to the essentials. When we started updating the article view we zeroed in on two features that we felt were non-essential to the majority of users; the option to convert links to footnotes and the option to hide images. We don't like to remove things based on gut feelings alone so we looked to the stats. We found that converting links was used by about 0.6% of users and hiding images about 0.3%. While we knew that we would have some users that were unhappy with the change, we decided that the usage was low enough that they should be removed.</p>
+<p>We have been contacted by a handful of users about the removal of these features. While we won't be bringing them back exactly how they were, we are interested in hearing how they were used to see if we can come up with a different way of accomplishing the goals without having to present the user with more options that they have to consider.</p>
+
+<h4>Moving Away from a Separate Mobile Site</h4>
+<p>Over the past two-plus years, Readability has employed a separate website for mobile devices. The separate site served us very well when it was launched and for some time after. Since then, we've honed our responsive web design techniques and now feel that we have the regular site in a state that makes it great on small, medium, and large screens alike. With that, we've made the decision to retire <a href="http://www.readability.com/mobile">http://www.readability.com/mobile</a> in favor of a responsively designed site that is functional on any device regardless of size, shape, or user input method.</p>
+<p>Having a single website for all devices is going to be beneficial in a number of ways. We'll be able to pour our energy into just one site, instead of splitting it between two. A responsive site is more future proof. Since we're not attempting any browser or device detection, but instead relying on the screen size and feature detection, Readability should work the same on any new device or browser that comes along without us needing to add new detection.</p>
+<p><mark>The separate mobile site will be available until August 1st.</mark> After August 1st all traffic to <i>http://www.readability.com/mobile</i> will be redirected to <i>http://www.readability.com</i></p>
+
+<h4>Give it a Try</h4>
+<img src="http://blog-assets.readability.com/wp-content/uploads/2013/07/rdb-responsive-closing-02.jpg" alt="Readability on small screen devices"/>
+<p>To start using the more responsive Readability, just head to <a href="http://www.readability.com">http://www.readability.com</a> and log in on any device that you have handy. If you use a small screen, touch-enable device you'll see the biggest difference. As always, we'll continue to make regular enhancements. Let us know what you think of the updates by commenting here or by <a href="https://www.readability.com/contact">getting in touch directly.</a></p>
+<i>Thanks for reading</i>
+
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

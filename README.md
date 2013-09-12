@@ -10,5 +10,9 @@ navigate to the root directory and run `jekyll serve`. In a browser visit
 ## Building
 When making changes to anything in the `/src` directory, you will need to build
 the site to see the changes take effect. To do so run `jekyll build`. If you are
-making a number of changes it's best to open a new terminall window and run build
+making a number of changes it's best to open a new terminal window and run build
 with the watch option `jekyll build -w`.
+
+## Comments
+Comments are handled through [Disqus](http://disqus.com/). Admin account creds
+are located in the Readability creds file.
